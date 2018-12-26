@@ -1,13 +1,19 @@
 <template>
-    <div>
+<div>
+    <input type="text" placeholder="add new todo"/>
+    <input type="button" value="add todo" @click="clicked" />
+</div>
 
-    </div>
 </template>
 
 <script>
-    import { Vue } from 'vue-property-decorator'
-    export default class Input extends Vue{
-        
+    export default {
+        methods: {
+            clicked () {
+                this.$emit('addToDo')
+            }
+        }
+
     }
 </script>
 

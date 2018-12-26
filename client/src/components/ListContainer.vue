@@ -1,5 +1,9 @@
 <template>
   <div class='ListContainer'>
+    <Input 
+        v-model="newToDoText" 
+        placeholder="add new todo"
+    />
     <ul>
         <ListItem 
             v-for="todo in todos"
@@ -14,13 +18,15 @@
 
 <script lang="ts">
 import ListItem from './ListItem.vue'
+import Input from './Input.vue'
 
 export default {
     components: {
-        ListItem
+        ListItem, Input
     },
     data: function () {
         return {
+            newToDoText: '',
             todos: [
                 { text: 'walk dog' }, 
                 { text: 'take out trash' }, 
@@ -29,6 +35,12 @@ export default {
             ]
         }
     }, 
+    methods: {
+        addTodo: function () {
+            const trimmedText = this.newToDoText.trim()
+            this.todos.push({ text: trimmedText})
+        }
+    }
 }
 </script>
 
