@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import ListContainer from './components/ListContainer.vue'
+import { Component, Vue } from 'vue-property-decorator';
+import ListContainer from './components/ListContainer.vue';
 
 @Component({
   components: {

@@ -1,9 +1,12 @@
 <template>
   <div class='ListContainer'>
-    <Input 
+      <input 
+        type="text"
         v-model="newToDoText" 
         placeholder="add new todo"
-    />
+        @keydown.enter="addTodo"
+      >
+      <input type="button" value="add todo" @click="addTodo">
     <ul>
         <ListItem 
             v-for="todo in todos"
@@ -17,31 +20,30 @@
 </template>
 
 <script lang="ts">
-import ListItem from './ListItem.vue'
-import Input from './Input.vue'
+import ListItem from './ListItem.vue';
 
 export default {
     components: {
-        ListItem, Input
+        ListItem,
     },
-    data: function () {
+    data() {
         return {
             newToDoText: '',
             todos: [
-                { text: 'walk dog' }, 
-                { text: 'take out trash' }, 
-                { text: 'learn typescript'}, 
-                { text: 'learn docker' }
-            ]
-        }
-    }, 
+                { text: 'walk dog' },
+                { text: 'take out trash' },
+                { text: 'learn typescript'},
+                { text: 'learn docker' },
+            ],
+        };
+    },
     methods: {
-        addTodo: function () {
-            const trimmedText = this.newToDoText.trim()
-            this.todos.push({ text: trimmedText})
-        }
-    }
-}
+        addTodo() {
+            const trimmedText = this.newToDoText.trim();
+            this.todos.push({ text: trimmedText});
+        },
+    },
+};
 </script>
 
 <style scoped>
