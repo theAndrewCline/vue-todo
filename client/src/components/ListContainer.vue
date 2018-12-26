@@ -10,8 +10,9 @@
     <ul>
         <ListItem 
             v-for="todo in todos"
-            :key="todo.text"
+            :key="todo.id"
             :todo="todo"
+            @removeTodo="removeTodo"
         />
   </ul>
 
@@ -28,20 +29,26 @@ export default {
     },
     data() {
         return {
+            nextTodoId:  4,
             newToDoText: '',
             todos: [
-                { text: 'walk dog' },
-                { text: 'take out trash' },
-                { text: 'learn typescript'},
-                { text: 'learn docker' },
+                {id: 0, text: 'walk dog' },
+                {id: 1, text: 'take out trash' },
+                {id: 2, text: 'learn typescript'},
+                {id: 3, text: 'learn docker' },
             ],
         };
     },
     methods: {
         addTodo() {
             const trimmedText = this.newToDoText.trim();
-            this.todos.push({ text: trimmedText});
+            this.todos.push({id: this.nextTodoId,  text: trimmedText});
+            this.nextTodoId++
+            this.newToDoText = ''
         },
+        removeTodo(id: number) {
+            this.todos = this.todos.filter(todo => todo.id !== id)
+        }
     },
 };
 </script>
