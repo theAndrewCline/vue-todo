@@ -1,21 +1,21 @@
 <template>
   <div class="ListContainer">
-    <ToDoList/>
-    <ToDoList/>
-    <ToDoList/>
+    <ToDoList v-for="ToDoList in ToDoLists" :key="ToDoList.name" :ToDoList="TodoList"/>
   </div>
 </template>
 
 <script lang="ts">
-
-import ToDoList from './ToDoList.vue'
+import ToDoList from './ToDoList.vue';
+import { mapState } from 'vuex'
 
 export default {
     components: {
-        ToDoList
-  }
-} 
-
+        ToDoList,
+    },
+    computed: mapState({
+      ToDoLists: ( state: any ) => state.ToDoLists
+    })
+};
 </script>
 
 <style scoped>

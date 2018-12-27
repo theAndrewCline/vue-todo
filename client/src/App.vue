@@ -11,17 +11,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import ListContainer from "./components/ListContainer.vue";
-import Title from "./components/Title.vue";
-import Settings from "./components/Settings.vue";
+import { Component, Vue } from 'vue-property-decorator';
+import ListContainer from './components/ListContainer.vue';
+import Title from './components/Title.vue';
+import Settings from './components/Settings.vue';
 
 @Component({
   components: {
     ListContainer,
     Title,
-    Settings
-  }
+    Settings,
+  },
 })
 export default class App extends Vue {}
 </script>
