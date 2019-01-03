@@ -2,8 +2,22 @@
   <a-layout>
     <a-layout-header>
       <Title/>
-      <Settings/>
+      <a-menu theme="dark" mode="horizonal" :defaultSelectedKeys="[2]">
+        <a-menu-item key="1">
+          <a-icon type="user"/>
+          <span>nav 1</span>
+        </a-menu-item>
+        <a-menu-item key="2">
+          <a-icon type="video-camera"/>
+          <span>nav 2</span>
+        </a-menu-item>
+        <a-menu-item key="3">
+          <a-icon type="upload"/>
+          <span>nav 3</span>
+        </a-menu-item>
+      </a-menu>
     </a-layout-header>
+
     <a-layout-content>
       <ListContainer/>
     </a-layout-content>
@@ -11,17 +25,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import ListContainer from './components/ListContainer.vue';
-import Title from './components/Title.vue';
-import Settings from './components/Settings.vue';
+import { Component, Vue } from "vue-property-decorator";
+import ListContainer from "./components/ListContainer.vue";
+import Title from "./components/Title.vue";
+import Settings from "./components/Settings.vue";
 
 @Component({
   components: {
     ListContainer,
     Title,
-    Settings,
-  },
+    Settings
+  }
 })
 export default class App extends Vue {}
 </script>
@@ -31,11 +45,5 @@ export default class App extends Vue {}
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5em;
 }
 </style>

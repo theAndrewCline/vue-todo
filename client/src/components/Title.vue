@@ -1,7 +1,5 @@
 <template>
-  <div class="logo">
     <h1>Vue ToDo</h1>
-  </div>
 </template>
 
 <script>

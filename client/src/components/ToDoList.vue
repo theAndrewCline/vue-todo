@@ -1,6 +1,6 @@
 <template>
-    <a-col :span="8" style="margin: .5em;">
-      <a-card title="To Do 1">
+    <a-col :span="8">
+      <a-card :title="ToDoList.name">
         <a slot="extra">Edit List</a>
         <div class="adder">
           <a-input
@@ -9,8 +9,8 @@
           />
           <a-button style="margin-left: 8px;" type="primary">Add Todo</a-button>
         </div>
-        <a-list v-if="todos.length">
-          <ListItem v-for="todo in todos" :key="todo.id" :todo="todo"/>
+        <a-list v-if="ToDoList.items.length">
+          <ListItem v-for="todo in ToDoList.items" :key="todo.id" :todo="todo"/>
         </a-list>
         <p v-else>Your todo list is clear! Great Job!</p>
       </a-card>
@@ -18,19 +18,20 @@
 </template>
 
 <script lang="ts">
-import ListItem from './ListItem.vue';
+import ListItem from './ListItem.vue'
 export default {
   components: {
-    ListItem,
+    ListItem
   },
   props: {
     ToDoList: {
-      
+      type: Object,
+      required: true
     }
   },
-  data() {},
-  methods: {},
-};
+  data () {},
+  methods: {}
+}
 </script>
 
 <style scoped>

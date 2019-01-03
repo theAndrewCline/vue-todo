@@ -1,16 +1,12 @@
 <template>
-<a-icon type="setting" theme="filled" />
+  <div>
+        </div>
 </template>
 
 <script>
-
-import { Icon } from 'ant-design-vue'
-    export default {
-        components: Icon
-        
-    }
+import { Icon } from "ant-design-vue";
+export default {};
 </script>
 
 <style scoped>
-
 </style>
